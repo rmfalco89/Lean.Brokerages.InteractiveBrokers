@@ -1383,7 +1383,10 @@ namespace QuantConnect.Brokerages.InteractiveBrokers
                 return;
             }
 
-            ValidateSubscription();
+            if (!_useExternalGateway)
+            {
+                ValidateSubscription();
+            }
 
             _isInitialized = true;
             _loadExistingHoldings = loadExistingHoldings;
